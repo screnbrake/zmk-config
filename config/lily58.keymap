@@ -251,6 +251,29 @@
 
             label = "MILLI";
         };
+
+        tripple_dot: tripple_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD &kp PERIOD &kp PERIOD>;
+            label = "TRIPPLE_DOT";
+        };
+
+        paragraph: paragraph {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_7>,
+                <&macro_release>,
+                <&kp RALT>;
+
+            label = "PARAGRAPH";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
     };
 
     behaviors {
@@ -434,6 +457,33 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
+
+        ch_accent: ch_accent {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CH_ACCENT";
+            bindings = <&tripple_dot>, <&kp GRAVE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+
+        custom_question: custom_question {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_QUESTION";
+            bindings = <&kp QUESTION>, <&paragraph>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+
+        custom_question_para_excl: custom_question_para_excl {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_QUESTION_PARA_EXCL";
+            bindings = <&custom_question>, <&kp EXCLAMATION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -557,11 +607,11 @@
 
             display-name = "abc";
             bindings = <
-&kp ESC        &custom_preshifted_1  &custom_preshifted_2  &custom_preshifted_3  &custom_preshifted_4  &custom_preshifted_5                               &kp CH_AMPR  &kp CH_SLSH  &kp CH_LPRN  &kp CH_RPRN  &kp CH_QUOT  &kp BACKSPACE
-&kp TAB        &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                              &kp CH_Z     &kp U        &kp I        &kp O        &kp P        &kp CH_QUES
-&capwd         &kp A                 &kp S                 &kp D                 &kp F                 &kp G                                              &kp H        &kp J        &kp K        &kp L        &kp CH_DIAE  &kp ENTER
-&UtilityL 2 1  &kp CH_Y              &kp X                 &kp C                 &kp V                 &kp B                 &kp LCTRL    &kp RIGHT_META  &kp N        &kp M        &kp COMMA    &kp PERIOD   &kp CH_MINS  &kp RSHFT
-                                                           &kp ENTER             &kp LALT              &kp LSHFT             &kp SPACE    &kp SPACE       &RMod 1 1    &kp RALT     &kp RCTRL
+&kp ESC        &custom_preshifted_1  &custom_preshifted_2  &custom_preshifted_3  &custom_preshifted_4  &custom_preshifted_5                               &custom_preshifted_6  &custom_preshifted_7  &custom_preshifted_8  &custom_preshifted_9  &kp SQT     &kp BACKSPACE
+&kp TAB        &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                              &kp Z                 &kp U                 &kp I                 &kp O                 &kp P       &custom_question_para_excl
+&capwd         &kp A                 &kp S                 &kp D                 &kp F                 &kp G                                              &kp H                 &kp J                 &kp K                 &kp L                 &ch_accent  &kp ENTER
+&UtilityL 2 1  &kp Y                 &kp X                 &kp C                 &kp V                 &kp B                 &kp LCTRL    &kp RIGHT_META  &kp N                 &kp M                 &kp COMMA             &kp PERIOD            &kp MINUS   &kp RSHFT
+                                                           &kp ENTER             &kp LALT              &kp LSHFT             &kp SPACE    &kp SPACE       &RMod 1 1             &kp RALT              &kp RCTRL
             >;
         };
 
