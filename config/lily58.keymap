@@ -461,7 +461,7 @@
         custom_dotts_accent: custom_dotts_accent {
             compatible = "zmk,behavior-mod-morph";
             label = "CUSTOM_DOTTS_ACCENT";
-            bindings = <&tripple_dot>, <&kp GRAVE>;
+            bindings = <&tripple_dot>, <&kp LS(EQUAL)>;
 
             #binding-cells = <0>;
             mods = <(MOD_RALT|MOD_LALT)>;
@@ -470,7 +470,7 @@
         custom_question: custom_question {
             compatible = "zmk,behavior-mod-morph";
             label = "CUSTOM_QUESTION";
-            bindings = <&kp QUESTION>, <&paragraph>;
+            bindings = <&kp LS(MINUS)>, <&paragraph>;
 
             #binding-cells = <0>;
             mods = <(MOD_RALT|MOD_LALT)>;
@@ -479,7 +479,7 @@
         custom_question_para_excl: custom_question_para_excl {
             compatible = "zmk,behavior-mod-morph";
             label = "CUSTOM_QUESTION_PARA_EXCL";
-            bindings = <&custom_question>, <&kp EXCLAMATION>;
+            bindings = <&custom_question>, <&kp LS(RIGHT_BRACKET)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
