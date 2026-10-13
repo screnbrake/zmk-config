@@ -458,9 +458,9 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        ch_accent: ch_accent {
+        custom_dotts_accent: custom_dotts_accent {
             compatible = "zmk,behavior-mod-morph";
-            label = "CH_ACCENT";
+            label = "CUSTOM_DOTTS_ACCENT";
             bindings = <&tripple_dot>, <&kp GRAVE>;
 
             #binding-cells = <0>;
@@ -498,7 +498,16 @@
         custom_grave: custom_grave {
             compatible = "zmk,behavior-mod-morph";
             label = "CUSTOM_GRAVE";
-            bindings = <&kp GRAVE>, <&kp CARET>;
+            bindings = <&kp MINUS>, <&kp EQUAL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        custom_dots_grave_egu: custom_dots_grave_egu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_DOTS_GRAVE_EGU";
+            bindings = <&custom_dotts_accent>, <&kp RA(MINUS)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -626,10 +635,10 @@
 
             display-name = "abc";
             bindings = <
-&kp ESC        &custom_preshifted_1  &custom_preshifted_2  &custom_preshifted_3  &custom_preshifted_4  &custom_preshifted_5                               &custom_preshifted_6  &custom_preshifted_7    &custom_preshifted_8  &custom_preshifted_9  &custom_grave  &kp BACKSPACE
-&kp TAB        &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                              &kp Z                 &umlaut U LEFT_BRACKET  &kp I                 &umlaut O SEMICOLON   &kp P          &custom_question_para_excl
-&capwd         &umlaut A SQT         &kp S                 &kp D                 &kp F                 &kp G                                              &kp H                 &kp J                   &kp K                 &kp L                 &ch_accent     &kp ENTER
-&UtilityL 2 1  &kp Y                 &kp X                 &kp C                 &kp V                 &kp B                 &kp LCTRL    &kp RIGHT_META  &kp N                 &kp M                   &kp COMMA             &kp PERIOD            &kp MINUS      &kp RSHFT
+&kp ESC        &custom_preshifted_1  &custom_preshifted_2  &custom_preshifted_3  &custom_preshifted_4  &custom_preshifted_5                               &custom_preshifted_6  &custom_preshifted_7    &custom_preshifted_8  &custom_preshifted_9  &custom_grave         &kp BACKSPACE
+&kp TAB        &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                              &kp Z                 &umlaut LEFT_BRACKET U  &kp I                 &umlaut SEMICOLON O   &kp P                 &custom_question_para_excl
+&capwd         &umlaut SQT A         &kp S                 &kp D                 &kp F                 &kp G                                              &kp H                 &kp J                   &kp K                 &kp L                 &custom_dotts_accent  &kp ENTER
+&UtilityL 2 1  &kp Y                 &kp X                 &kp C                 &kp V                 &kp B                 &kp LCTRL    &kp RIGHT_META  &kp N                 &kp M                   &kp COMMA             &kp PERIOD            &kp MINUS             &kp RSHFT
                                                            &kp ENTER             &kp LALT              &kp LSHFT             &kp SPACE    &kp SPACE       &RMod 1 1             &kp RALT                &kp RCTRL
             >;
         };
