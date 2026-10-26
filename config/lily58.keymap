@@ -461,7 +461,7 @@
         custom_dotts_accent: custom_dotts_accent {
             compatible = "zmk,behavior-mod-morph";
             label = "CUSTOM_DOTTS_ACCENT";
-            bindings = <&tripple_dot>, <&kp LS(EQUAL)>;
+            bindings = <&kp RIGHT_BRACKET>, <&kp LS(EQUAL)>;
 
             #binding-cells = <0>;
             mods = <(MOD_RALT|MOD_LALT)>;
