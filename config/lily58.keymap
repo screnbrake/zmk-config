@@ -251,6 +251,29 @@
 
             label = "MILLI";
         };
+
+        tripple_dot: tripple_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD &kp PERIOD &kp PERIOD>;
+            label = "TRIPPLE_DOT";
+        };
+
+        paragraph: paragraph {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_7>,
+                <&macro_release>,
+                <&kp RALT>;
+
+            label = "PARAGRAPH";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
     };
 
     behaviors {
@@ -344,6 +367,151 @@
             mods = <(MOD_LCTL)>;
             keep-mods = <(MOD_LCTL)>;
         };
+
+        custom_preshifted_1: custom_preshifted_1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_1";
+            bindings = <&kp LS(NUMBER_1)>, <&kp RA(NUMBER_1)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_2: custom_preshifted_2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_2";
+            bindings = <&kp LS(NUMBER_2)>, <&kp RA(NUMBER_2)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_3: custom_preshifted_3 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_3";
+            bindings = <&kp LS(NUMBER_3)>, <&kp RA(NUMBER_3)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_4: custom_preshifted_4 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_4";
+            bindings = <&kp LS(NUMBER_4)>, <&kp RA(NUMBER_4)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_5: custom_preshifted_5 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_5";
+            bindings = <&kp LS(NUMBER_5)>, <&kp RA(NUMBER_5)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_6: custom_preshifted_6 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_6";
+            bindings = <&kp LS(NUMBER_6)>, <&kp RA(NUMBER_6)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NEW_BEHAVIOR";
+            bindings = <&kp LS(NUMBER_7)>, <&kp RA(NUMBER_7)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_7: custom_preshifted_7 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_7";
+            bindings = <&kp LS(NUMBER_7)>, <&kp RA(NUMBER_7)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_8: custom_preshifted_8 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_8";
+            bindings = <&kp LS(NUMBER_8)>, <&kp RA(NUMBER_8)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_preshifted_9: custom_preshifted_9 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_PRESHIFTED_9";
+            bindings = <&kp LS(NUMBER_9)>, <&kp RA(NUMBER_9)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        custom_dotts_accent: custom_dotts_accent {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_DOTTS_ACCENT";
+            bindings = <&tripple_dot>, <&kp LS(EQUAL)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+
+        custom_question: custom_question {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_QUESTION";
+            bindings = <&kp LS(MINUS)>, <&paragraph>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+
+        custom_question_para_excl: custom_question_para_excl {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_QUESTION_PARA_EXCL";
+            bindings = <&custom_question>, <&kp LS(RIGHT_BRACKET)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        umlaut: umlaut {
+            compatible = "zmk,behavior-hold-tap";
+            label = "UMLAUT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            hold-trigger-on-release;
+        };
+
+        custom_grave: custom_grave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_GRAVE";
+            bindings = <&kp MINUS>, <&kp EQUAL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        custom_dots_grave_egu: custom_dots_grave_egu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CUSTOM_DOTS_GRAVE_EGU";
+            bindings = <&custom_dotts_accent>, <&kp RA(MINUS)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -355,25 +523,25 @@
         };
 
         LBrak {
-            bindings = <&kp LBKT>;
+            bindings = <&kp RA(LEFT_BRACKET)>;
             key-positions = <18 19>;
             require-prior-idle-ms = <200>;
         };
 
         rbrak {
-            bindings = <&kp RIGHT_BRACKET>;
+            bindings = <&kp RA(RIGHT_BRACKET)>;
             key-positions = <20 19>;
             require-prior-idle-ms = <200>;
         };
 
         lbrace {
-            bindings = <&kp LEFT_BRACE>;
+            bindings = <&kp RA(SQT)>;
             key-positions = <30 31>;
             require-prior-idle-ms = <200>;
         };
 
         rbrace {
-            bindings = <&kp RIGHT_BRACE>;
+            bindings = <&kp RA(NON_US_BACKSLASH)>;
             key-positions = <31 32>;
             require-prior-idle-ms = <200>;
         };
@@ -408,28 +576,28 @@
         };
 
         under {
-            bindings = <&kp UNDER>;
+            bindings = <&kp LS(MINUS)>;
             key-positions = <21 22>;
             require-prior-idle-ms = <125>;
         };
 
         semi {
-            bindings = <&kp SEMI>;
+            bindings = <&kp LS(SEMI)>;
             key-positions = <22 23>;
         };
 
         col {
-            bindings = <&kp COLON>;
+            bindings = <&kp LS(PERIOD)>;
             key-positions = <34 35>;
         };
 
         equals {
-            bindings = <&kp EQUAL>;
+            bindings = <&kp LS(N0)>;
             key-positions = <2 3>;
         };
 
         inch {
-            bindings = <&kp DOUBLE_QUOTES>;
+            bindings = <&kp LS(NUMBER_2)>;
             key-positions = <14 15>;
         };
 
@@ -467,11 +635,11 @@
 
             display-name = "abc";
             bindings = <
-&kp ESC        &kp CH_PLUS  &kp CH_DQUO  &kp CH_ASTR  &kp CH_CCED  &kp CH_PERC                               &kp CH_AMPR  &kp CH_SLSH  &kp CH_LPRN  &kp CH_RPRN  &kp CH_QUOT  &kp BACKSPACE
-&kp TAB        &kp Q        &kp W        &kp E        &kp R        &kp T                                     &kp CH_Z     &kp U        &kp I        &kp O        &kp P        &kp CH_QUES
-&capwd         &kp A        &kp S        &kp D        &kp F        &kp G                                     &kp H        &kp J        &kp K        &kp L        &kp CH_DIAE  &kp ENTER
-&UtilityL 2 1  &kp CH_Y     &kp X        &kp C        &kp V        &kp B        &kp LCTRL    &kp RIGHT_META  &kp N        &kp M        &kp COMMA    &kp PERIOD   &kp CH_MINS  &kp RSHFT
-                                         &kp ENTER    &kp LALT     &kp LSHFT    &kp SPACE    &kp SPACE       &RMod 1 1    &kp RALT     &kp RCTRL
+&kp ESC        &custom_preshifted_1  &custom_preshifted_2  &custom_preshifted_3  &custom_preshifted_4  &custom_preshifted_5                               &custom_preshifted_6  &custom_preshifted_7    &custom_preshifted_8  &custom_preshifted_9  &custom_grave         &kp BACKSPACE
+&kp TAB        &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                              &kp Z                 &umlaut LEFT_BRACKET U  &kp I                 &umlaut SEMICOLON O   &kp P                 &custom_question_para_excl
+&capwd         &umlaut SQT A         &kp S                 &kp D                 &kp F                 &kp G                                              &kp H                 &kp J                   &kp K                 &kp L                 &custom_dotts_accent  &kp ENTER
+&UtilityL 2 1  &kp Y                 &kp X                 &kp C                 &kp V                 &kp B                 &kp LCTRL    &kp RIGHT_META  &kp N                 &kp M                   &kp COMMA             &kp PERIOD            &kp MINUS             &kp RSHFT
+                                                           &kp ENTER             &kp LALT              &kp LSHFT             &kp SPACE    &kp SPACE       &RMod 1 1             &kp RALT                &kp RCTRL
             >;
         };
 
